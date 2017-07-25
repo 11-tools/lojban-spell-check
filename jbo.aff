@@ -1,0 +1,17 @@
+SET UTF-8
+
+LANG loj
+
+#FLAG ASCII
+
+# DUMMY VALUE! To be updated
+TRY aeiouy'bcdfgjklmnpstvxz.,
+
+IGNORE ()[];:!?
+
+WORDCHARS .,'
+REP h '
+
+KEEPCASE X
+
+
