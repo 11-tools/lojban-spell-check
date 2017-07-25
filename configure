@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo apt install hunspell hunspell-tools wget make pv
