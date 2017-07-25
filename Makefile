@@ -13,7 +13,12 @@ install: all
 	source "./config.sh" && cp $$curLang.* /usr/share/myspell/dicts/   # TODO: replace with symlinks to hunspell
 
 libreoffice: all
-	-source "./config.sh" && cp "$$curLang.dic" libreoffice-oxt/ && cp "$$curLang.aff" libreoffice-oxt/
-	-source "./config.sh" && cd "libreoffice-oxt" && zip -rq9 "../libreoffice-dictionary-$$curLang.oxt" * && cd -
+	source "./config.sh" && cp "$$curLang.dic" libreoffice-oxt/ && cp "$$curLang.aff" libreoffice-oxt/
+	source "./config.sh" && cd "libreoffice-oxt" && zip -rq9 "../libreoffice-dictionary-$$curLang.oxt" * && cd -
 
 openoffice: libreoffice     # Alias
+
+stage: all libreoffice
+	mkdir -p stage
+	source "./config.sh" && mv "$$curLang.dic" stage && mv "libreoffice-dictionary-$$curLang.oxt" stage
+	source "./config.sh" && cp "$$curLang.aff" stage
