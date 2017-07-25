@@ -1,0 +1,4 @@
+stage/
+libreoffice-oxt/*.dic
+libreoffice-oxt/*.aff
+wordlist_cache.html
