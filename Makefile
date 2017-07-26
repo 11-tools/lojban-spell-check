@@ -6,19 +6,21 @@ all:
 	./createDict.sh
 
 clean:
-	-source "./config.sh" && rm "$$curLang.dic" "$$w2" "libreoffice-dictionary-$$curLang.oxt" "libreoffice-oxt/$$curLang.dic" "libreoffice-oxt/$$curLang.aff"
+	-source "./config.sh" && rm "$$curLang.dic" "$$w2" "$$oxtFilePrefix"*".oxt" "libreoffice-oxt/$$curLang.dic" "libreoffice-oxt/$$curLang.aff"
 
 install: all
-	source "./config.sh" && cp $$curLang.* /usr/share/hunspell/
-	source "./config.sh" && cp $$curLang.* /usr/share/myspell/dicts/   # TODO: replace with symlinks to hunspell
+	source "./config.sh" && cp "$$curLang."* /usr/share/hunspell/
+	source "./config.sh" && cp "$$curLang."* /usr/share/myspell/dicts/   # TODO: replace with symlinks to hunspell
 
-libreoffice: all
-	source "./config.sh" && cp "$$curLang.dic" libreoffice-oxt/ && cp "$$curLang.aff" libreoffice-oxt/
-	source "./config.sh" && cd "libreoffice-oxt" && zip -rq9 "../libreoffice-dictionary-$$curLang.oxt" * && cd -
+oxt: all
+	./createOXT.sh
 
-openoffice: libreoffice     # Alias
+libreoffice: oxt    # Alias
+openoffice:  oxt    # Alias
 
-stage: all libreoffice
+stage: all oxt
 	mkdir -p stage
-	source "./config.sh" && mv "$$curLang.dic" stage && mv "libreoffice-dictionary-$$curLang.oxt" stage
+	# Move output to stage (as if a clean was called)
+	source "./config.sh" && mv "$$curLang.dic" stage && mv "$$oxtFileName" stage
+	# Copy the affix file (it is not a generated resource: do not move)
 	source "./config.sh" && cp "$$curLang.aff" stage
