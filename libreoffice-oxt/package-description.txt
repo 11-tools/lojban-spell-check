@@ -1,1 +1,5 @@
-Lojban dictionary (ANSI characters)
+[jbo] ti jbovla cipcta cukta
+[eng] This is a Lojban spell-checker dictionary.
+[fra] Ceci est un dictionnaire orthographique Lojban.
+
+(ANSI characters)
