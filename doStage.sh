@@ -23,7 +23,7 @@ cur="$dir/libreoffice"
 rm -r "$cur" 2> /dev/null
 mkdir -p "$cur"
 mv "$oxtFileName" "$cur"
-ln -s "$cur/$oxtFileName" "$dir/Lojban LibreOffice and OpenOffice dictionary.oxt"
+#ln -s "$cur/$oxtFileName" "$dir/Lojban LibreOffice and OpenOffice dictionary.oxt"
 
 # 3. Opera
 cur="$dir/opera"
@@ -37,4 +37,7 @@ cur="$dir/firefox"
 rm -r "$cur" 2> /dev/null
 mkdir -p "$cur"
 mv "$xpiFileName" "$cur"
-ln -s "$cur/$xpiFileName" "$dir/Lojban Firefox dictionary.xpi"
+#ln -s "$cur/$xpiFileName" "$dir/Lojban Firefox dictionary.xpi"
+
+# Readme
+sed -E "s/%oxt%/libreoffice\/$oxtFileName/" "README_STAGE.md" | sed -E "s/%xpi%/firefox\/$xpiFileName/" > "$dir/README.md"
