@@ -4,8 +4,8 @@
     <identifier value="jbo" />
     <display-name>
         <name lang="jbo">ti jbovla cipcta cukta</name>
-        <name lang="en">This is a Lojban spell-checker dictionary.</name>
-	<name lang="fr">Ceci est un dictionnaire orthographique Lojban.</name>
+        <name lang="en">Lojban spell-checker dictionary.</name>
+	<name lang="fr">Dictionnaire orthographique Lojban.</name>
     </display-name>
     <platform value="all" />
     <dependencies>
