@@ -1,6 +1,11 @@
 stage/
 libreoffice-oxt/*.dic
 libreoffice-oxt/*.aff
+libreoffice-oxt/license.txt
+opera/*.dic
+opera/*.aff
+opera/license.txt
+opera/README*
 wordlist_cache.html
 /*.dic
 /*.oxt
