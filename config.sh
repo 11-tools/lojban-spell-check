@@ -9,3 +9,5 @@ w2="wordlist_cache.html"        # Intermediate file to store the web page contai
 webListRefresh="3600*24*7"      # Seconds before updating the list from the web (default: 1 week)
 oxtFilePrefix="lo-oo-dictionary-$curLang-v"     # Prefix used to generate file name of the OXT file (LibreOffice / OpenOffice extension)
 oxtFileName="$oxtFilePrefix$version.oxt"        # OXT file name
+xpiFilePrefix="firefox-dictionary-$curLang-v"   # Ditto, for Firefox
+xpiFileName="$xpiFilePrefix$version.xpi"        # ...

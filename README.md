@@ -1,4 +1,5 @@
-= Resources for Lojban spell cheking
+# Resources for Lojban spell cheking
+
 Resources to generate Lojban spell check dictionaries for various software. This doesn't contain the actual useable dictionaries.
 Please visit https://github.com/Sukender/lojban-spell-check-dist to get the dictionaries/installers/packages.
 

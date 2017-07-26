@@ -6,6 +6,8 @@ opera/*.dic
 opera/*.aff
 opera/license.txt
 opera/README*
+firefox/dictionaries/
+firefox/license.txt
 wordlist_cache.html
 /*.dic
 /*.oxt
