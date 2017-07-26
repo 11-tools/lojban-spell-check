@@ -3,10 +3,15 @@
     <version value="2017.07.26" />
     <identifier value="jbo" />
     <display-name>
-        <name lang="jbo">Lojban spelling dictionary</name>
+        <name lang="jbo">ti jbovla cipcta cukta</name>
+        <name lang="en">This is a Lojban spell-checker dictionary.</name>
+	<name lang="fr">Ceci est un dictionnaire orthographique Lojban.</name>
     </display-name>
     <platform value="all" />
     <dependencies>
         <OpenOffice.org-minimal-version value="3.2" d:name="OpenOffice.org 3.2" />
     </dependencies>
+    <icon>
+        <default xlink:href="lojban_flag.png" />
+    </icon>
 </description>
