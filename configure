@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo apt install hunspell hunspell-tools wget make pv zip
+sudo apt install hunspell hunspell-tools aspell wget make pv zip

@@ -7,4 +7,4 @@ These are ultra-basic dictionaries for Lojban, based on ANSI characters (~= lati
 The result is clearly simplistic, of poor quality, and maybe inaccurate. But still better than nothing!
 
 To do:
- - libreoffice oxt : make XCU file content dynamic (language code).
+ - libreoffice, opera, firefox : make file content dynamic for language code.
