@@ -7,14 +7,19 @@ source "$DIR/config.sh" || exit 4
 
 # --------------------------------------------------------------------------------
 
+dir="libreoffice-oxt"
+
 # Copy affix file, and generated dictionary
-cp "$curLang.dic" "libreoffice-oxt/"
-cp "$curLang.aff" "libreoffice-oxt/"
+cp "$curLang.dic" "$dir/"
+cp "$curLang.aff" "$dir/"
 
 # Update version number
-sed -i -E "s/(<version value=\")[^\"]*(\" \/>)/\1$version\2/" "libreoffice-oxt/description.xml"
+sed -i -E "s/(<version value=\")[^\"]*(\" \/>)/\1$version\2/" "$dir/description.xml"
+
+# Update/copy license
+cp "LICENSE" "$dir/license.txt"
 
 # Zip into an .oxt file
-cd "libreoffice-oxt"
+cd "$dir"
 zip -rq9 "../$oxtFileName" *
 cd -
