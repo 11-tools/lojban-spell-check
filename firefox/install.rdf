@@ -3,7 +3,7 @@
      xmlns:em="http://www.mozilla.org/2004/em-rdf#">
   <Description about="urn:mozilla:install-manifest">
     <em:id>jbo@dictionaries.addons.mozilla.org</em:id>
-    <em:version>2017.07.26</em:version>
+    <em:version>2017.07.27</em:version>
     <em:type>64</em:type>
     <em:unpack>true</em:unpack>
     <em:name>la .lojban.</em:name>

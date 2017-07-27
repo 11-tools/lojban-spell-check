@@ -12,7 +12,7 @@ aspell:
 base: hunspell aspell
 
 clean:
-	-source "./config.sh" && rm "$$curLang.dic" "$$w2" "$$oxtFilePrefix"*".oxt" "libreoffice-oxt/$$curLang.dic" "libreoffice-oxt/$$curLang.aff" "$$curlang.zip"
+	-source "./config.sh" && rm "$$w2" "$$w3" "$$w4" "$$curLang.dic" "$$oxtFilePrefix"*".oxt" "libreoffice-oxt/$$curLang.dic" "libreoffice-oxt/$$curLang.aff" "$$curlang.zip" "ms.dic"
 
 install: hunspell
 	source "./config.sh" && cp "$$curLang."* /usr/share/hunspell/

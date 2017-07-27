@@ -39,5 +39,11 @@ mkdir -p "$cur"
 mv "$xpiFileName" "$cur"
 #ln -s "$cur/$xpiFileName" "$dir/Lojban Firefox dictionary.xpi"
 
+# 5. MS
+cur="$dir/ms"
+rm -r "$cur" 2> /dev/null
+mkdir -p "$cur"
+mv "ms.dic" "$cur/jbo.dic"
+
 # Readme
 sed -E "s/%oxt%/libreoffice\/$oxtFileName/" "README_STAGE.md" | sed -E "s/%xpi%/firefox\/$xpiFileName/" > "$dir/README.md"
