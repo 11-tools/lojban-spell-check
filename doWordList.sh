@@ -15,10 +15,10 @@ source "$DIR/doDownload.sh"
 #  - Keep one word per entry, filter out anything else (HTML stuff)
 #    - Example of a line in the HTML source: -&nbsp;<a href="abvele">abvele</a><br />
 #  - Prepend a dot '.' before words begining with a vowel
-#    - Not sure if the 'y' should be included or not, but ".y." is written as is in the ref docs.
+#  - Fix 'y', which is written ".y." in the ref docs.
 #  - Filter out ultra-long words (are these spam?).
 #    - TODO: make the length a variable instead of a hardcoded value
-sed -En 's/^\-&nbsp;.*<a href="[^"]*">(.*)<\/a>.*$/\1/p' "$w2" | sed -E 's/^([aeiouy].*)$/.\1/' | sed -En '/^.{22,}$/!p' > "$w3"
+sed -En 's/^\-&nbsp;.*<a href="[^"]*">(.*)<\/a>.*$/\1/p' "$w2" | sed -E 's/^([aeiouy].*)$/.\1/' | sed -E 's/^.y$/.y./' | sed -En '/^.{22,}$/!p' > "$w3"
 
 # Append local wordlist
 if [ -f "$w1" ]; then

@@ -10,10 +10,21 @@ source "$DIR/config.sh" || exit 4
 # Retreive the Lojban words list
 source "$DIR/doWordList.sh"
 
+# Split into cmavo / non-cmavo, and add flags
+#regex=
+#sed -En "/^[^aeiouy]?[aeiouy]('?[aeiouy])?$/wc1;!wc0" "$w4"
+sed -En '/^[^aeiouy]?[aeiouy]([^a-z]?[aeiouy])?$/p'    "$w4" | sed -E 's/$/\/CX/' > c1
+sed -En '/^[^aeiouy]?[aeiouy]([^a-z]?[aeiouy])?$/'"!p" "$w4" | sed -E 's/$/\/X/'  > c0
+
+# Merge
+cat c1 >> c0
+sort c0 | uniq > "$w4"
+rm c0 c1
+
 # Create base dictionary by adding count first
 wc -l < "$w4" > "$w3"
 # And add suffix for all words
-cat "$w4" | sed -E 's/$/\\X/' >> "$w3"
+cat "$w4" >> "$w3"
 rm "$w4"
 
 # From http://www.suares.com/index.php?page_id=25&news_id=233
