@@ -2,28 +2,32 @@
 
 SHELL:=/bin/bash
 
-# Base dicts
-base:
-	./createDict.sh
+hunspell:
+	./createHunspell.sh
+
+aspell:
 	#./createAspell.sh
+
+# Base dictionaries
+base: hunspell aspell
 
 clean:
 	-source "./config.sh" && rm "$$curLang.dic" "$$w2" "$$oxtFilePrefix"*".oxt" "libreoffice-oxt/$$curLang.dic" "libreoffice-oxt/$$curLang.aff" "$$curlang.zip"
 
-install: base
+install: hunspell
 	source "./config.sh" && cp "$$curLang."* /usr/share/hunspell/
 	source "./config.sh" && cp "$$curLang."* /usr/share/myspell/dicts/   # TODO: replace with symlinks to hunspell
 
-oxt: base
+oxt: hunspell
 	./createOXT.sh
 
 libreoffice: oxt    # Alias
 openoffice:  oxt    # Alias
 
-opera: base
+opera: hunspell
 	./createOpera.sh
 
-firefox: base
+firefox: hunspell
 	./createFirefox.sh
 
 ms:
