@@ -11,3 +11,14 @@ oxtFilePrefix="lo-oo-dictionary-$curLang-v"     # Prefix used to generate file n
 oxtFileName="$oxtFilePrefix$version.oxt"        # OXT file name
 xpiFilePrefix="firefox-dictionary-$curLang-v"   # Ditto, for Firefox
 xpiFileName="$xpiFilePrefix$version.xpi"        # ...
+
+is64="$(uname -m)"
+if [ "$is64" = "x86_64" ]; then
+	binSuffix="-x64"
+	is64=1;
+else
+	binSuffix="-x32"
+	is64=0;
+fi
+
+binSuffix="$binSuffix-$(lscpu | sed -En 's/^.* ([^ ]* Endian)$/\1/p' | sed 's/ /_/')"

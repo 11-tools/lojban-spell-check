@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Creates a LibreOffice/OpenOffice extension (spell-check only) Lojban.
+# Creates an Opera-compatible dictionary for Lojban.
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"		# Script dir
 source "$DIR/config.sh" || exit 4

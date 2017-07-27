@@ -21,3 +21,6 @@ In the future, dictionaries __may__ be bundled in software.
     - ```<dictionary id="jbo"><name>la .lojban.</name><size>1588813</size><authors>Sukender</authors><license>http://dumy.url</license></dictionary>```
   - Restart Opera
   - Open ```opera://settings```, open the dictionaries popup, and verify that "jbo" is in the list.
+- **ms**: "Personal dictionary", for Microsoft Office
+  - You may need to edit the preferences. For example, open Microsoft Word > File > Preferences > Proof > Custom dictionaries
+  - Default personal dictionaries directory: ```C:\Users\YOUR_LOGIN\AppData\Roaming\Microsoft\UProof```

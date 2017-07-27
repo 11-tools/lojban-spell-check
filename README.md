@@ -6,5 +6,10 @@ Please visit https://github.com/Sukender/lojban-spell-check-dist to get the dict
 These are ultra-basic dictionaries for Lojban, based on ANSI characters (~= latin alphabet).
 The result is clearly simplistic, of poor quality, and maybe inaccurate. But still better than nothing!
 
+- Version: 0.1
+- Author: Sukender (Benoit NEIL)
+- Licence: WTFPL
+- Dependencies: hunspell aspell sed wget make zip
+
 To do:
- - libreoffice, opera, firefox : make file content dynamic for language code.
+- libreoffice, opera, firefox : make file content dynamic for language code.

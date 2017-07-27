@@ -10,6 +10,7 @@ TRY aeiouy'bcdfgjklmnpstvxz.,
 IGNORE ()[];:!?
 
 WORDCHARS .,'
+REP 1
 REP h '
 
 KEEPCASE X

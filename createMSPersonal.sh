@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Creates a Hunspell/Myspell dictionary for Lojban.
+# Creates a Microsoft-compatible "personal dictionary".
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"		# Script dir
 source "$DIR/config.sh" || exit 4
@@ -27,20 +27,10 @@ if [ -f "$w1" ]; then
 	cat "$w1" >> "$w3"
 fi
 
-# Sort and remove duplicates
-# Also append a custom flag on each word (for the affix), and ignore empty lines
-sort "$w3" | uniq | sed -En "s/^(..*)$/\1\/X/p" > "$w4"
+# Sort and remove duplicates and remove empty lines
+sort "$w3" | uniq | sed -En '/^ *$/!p' > "$w4"
 rm "$w3"
 
-# Create base dictionary by adding count first
-wc -l < "$w4" > "$w3"
-cat "$w4" >> "$w3"
-rm "$w4"
-
-# From http://www.suares.com/index.php?page_id=25&news_id=233
-if [ ! -f "$curLang.aff" ]; then
-	echo "Missing affix file. Creating default one: $curLang.aff"
-	touch "$curLang.aff"
-fi
-munch "$w3" "$curLang.aff" > "$curLang.dic" 2> /dev/null     # munch is verbose and has no --quiet option
-rm "$w3"
+# Stage
+mkdir -p "stage/ms"
+mv "$w4" "stage/ms/jbo.dic"
