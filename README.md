@@ -9,7 +9,12 @@ The result is clearly simplistic, of poor quality, and maybe inaccurate. But sti
 - Version: 0.1
 - Author: Sukender (Benoit NEIL)
 - Licence: WTFPL
-- Dependencies: hunspell aspell sed wget make zip
+- Main dependencies: hunspell aspell sed wget o
+make zip (see [./configure](configure) for a full list)
 
 To do:
-- libreoffice, opera, firefox : make file content dynamic for language code.
+- Add aspell
+  - Both 32 bits Little Endian and 64 bits Little Endian
+  - Add compound cmavo support
+- libreoffice, opera, firefox : make file content files dynamic for language code (ie. replace hardcoded 'jbo').
+
