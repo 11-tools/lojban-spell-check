@@ -11,10 +11,12 @@ source "$DIR/config.sh" || exit 4
 source "$DIR/doWordList.sh"
 
 # Split into cmavo / non-cmavo, and add flags
-#regex=
-#sed -En "/^[^aeiouy]?[aeiouy]('?[aeiouy])?$/wc1;!wc0" "$w4"
-sed -En '/^[^aeiouy]?[aeiouy]([^a-z]?[aeiouy])?$/p'    "$w4" | sed -E 's/$/\/CX/' > c1
-sed -En '/^[^aeiouy]?[aeiouy]([^a-z]?[aeiouy])?$/'"!p" "$w4" | sed -E 's/$/\/X/'  > c0
+# Notes:
+#  - Regex allows following cmavo formats: V, VV, VVV+, CV, CVV, CVVV+, as specified in the CLL
+#  - VVV+ and CVVV+ are experimental cmavo, as well as xV+. All those are accepted here.
+#  - [^aeiouy] will actually accept the dot '.' in front of a voyel-starting cmavo, such as ".a".
+sed -En '/^[^aeiouy]?[aeiouy](([^a-z]?[aeiouy])?)*$/p'    "$w4" | sed -E 's/$/\/CX/' > c1
+sed -En '/^[^aeiouy]?[aeiouy](([^a-z]?[aeiouy])?)*?$/'"!p" "$w4" | sed -E 's/$/\/X/'  > c0
 
 # Merge
 cat c1 >> c0
