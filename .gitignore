@@ -13,5 +13,5 @@ wordlist/**
 !wordlist/test*
 !wordlist/headall
 !wordlist/*.sed
-/*.dic
+hunspell/*.dic
 /*.oxt

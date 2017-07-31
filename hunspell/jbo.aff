@@ -1,6 +1,6 @@
 SET UTF-8
 
-LANG loj
+LANG jbo
 
 #FLAG ASCII
 
@@ -10,6 +10,8 @@ TRY aeiouy'bcdfgjklmnpstvxz.,
 IGNORE ()[];:!?
 
 WORDCHARS .,'
+SUGSWITHDOTS
+
 REP 1
 REP h '
 

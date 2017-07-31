@@ -13,10 +13,8 @@ dir="stage"
 cur="$dir/hunspell"
 rm -r "$cur" 2> /dev/null
 mkdir -p "$cur"
-# Move output to stage (as if a clean was called)
-mv "$curLang.dic" "$cur"
-# Copy the affix file (it is not a generated resource: do not move)
-cp "$curLang.aff" "$cur"
+cp "hunspell/$curLang.dic" "$cur"
+cp "hunspell/$curLang.aff" "$cur"
 
 # 2. OXT
 cur="$dir/libreoffice"

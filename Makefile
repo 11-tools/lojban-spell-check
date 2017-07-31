@@ -1,39 +1,48 @@
 # Ultra-basic makefile for Lojban dictionary
+# TODO: use non-phony rules to detect what is to rebuild and what is not
+# TODO: make variable names: jbo wordlist_cache.html
 
 SHELL:=/bin/bash
 
-hunspell:
+.PHONY: hunspell aspell base clean install oxt libreoffice openoffice opera firefox ms all stage
+
+wordlist_cache.html:
+	./doDownload
+
+wordlist/full: wordlist_cache.html
+	./doWordList.sh
+
+hunspell/jbo.dic: wordlist/full
 	./createHunspell.sh
 
-aspell:
+hunspell: hunspell/jbo.dic
+
+#aspell/???: wordlist/full
 	#./createAspell.sh
 
-# Base dictionaries
-base: hunspell aspell
-
 clean:
-	-source "./config.sh" && rm "$$w2" "$$w3" "$$w4" "$$curLang.dic" "$$oxtFilePrefix"*".oxt" "libreoffice-oxt/$$curLang.dic" "libreoffice-oxt/$$curLang.aff" "$$curlang.zip" "ms.dic"
+	-source "./config.sh" && rm "$$w2" "hunspell.dic" "hunspell/$$curLang.dic" "$$oxtFilePrefix"*".oxt" "libreoffice-oxt/$$curLang.dic" "libreoffice-oxt/$$curLang.aff" "$$curlang.zip" "ms.dic"
 
-install: hunspell
-	source "./config.sh" && cp "$$curLang."* /usr/share/hunspell/
-	source "./config.sh" && cp "$$curLang."* /usr/share/myspell/dicts/   # TODO: replace with symlinks to hunspell
+install: hunspell/jbo.dic
+	source "./config.sh" && cp "hunspell/$$curLang."* /usr/share/hunspell/
+	source "./config.sh" && cp "hunspell/$$curLang."* /usr/share/myspell/dicts/   # TODO: replace with symlinks to hunspell
 
-oxt: hunspell
+oxt: hunspell/jbo.dic
 	./createOXT.sh
 
 libreoffice: oxt    # Alias
 openoffice:  oxt    # Alias
 
-opera: hunspell
+opera: hunspell/jbo.dic
 	./createOpera.sh
 
-firefox: hunspell
+firefox: hunspell/jbo.dic
 	./createFirefox.sh
 
-ms:
+ms: wordlist/full
 	./createMSPersonal.sh
 
-all: base oxt opera firefox ms
+all: hunspell/jbo.dic oxt opera firefox ms
 
 stage: all
 	./doStage.sh

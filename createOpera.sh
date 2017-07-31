@@ -10,8 +10,8 @@ source "$DIR/config.sh" || exit 4
 dir="opera"
 
 # Copy affix file, and generated dictionary
-cp "$curLang.dic" "$dir/"
-cp "$curLang.aff" "$dir/"
+cp "hunspell/$curLang.dic" "$dir/"
+cp "hunspell/$curLang.aff" "$dir/"
 
 # Update/copy license & description
 cp "LICENSE" "$dir/license.txt"

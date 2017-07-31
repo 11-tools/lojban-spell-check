@@ -10,8 +10,8 @@ source "$DIR/config.sh" || exit 4
 dir="libreoffice-oxt"
 
 # Copy affix file, and generated dictionary
-cp "$curLang.dic" "$dir/"
-cp "$curLang.aff" "$dir/"
+cp "hunspell/$curLang.dic" "$dir/"
+cp "hunspell/$curLang.aff" "$dir/"
 
 # Update version number
 sed -i -E "s/(<version value=\")[^\"]*(\" \/>)/\1$version\2/" "$dir/description.xml"

@@ -12,8 +12,8 @@ dir="firefox"
 mkdir -p "$dir/dictionaries"
 
 # Copy affix file, and generated dictionary
-cp "$curLang.dic" "$dir/dictionaries/"
-cp "$curLang.aff" "$dir/dictionaries/"
+cp "hunspell/$curLang.dic" "$dir/dictionaries/"
+cp "hunspell/$curLang.aff" "$dir/dictionaries/"
 
 # Update version number
 sed -i -E "s/(<em:version>)[^>]*(<\/em:version>)/\1$version\2/" "$dir/install.rdf"
