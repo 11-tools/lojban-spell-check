@@ -8,38 +8,58 @@ source "$DIR/config.sh" || exit 4
 
 # -------------------------------------------------------------------------------
 
+w3="wordlist_tmp1"
+w4="wordlist_tmp2"
+
 # Retreive the Lojban words list from the web (jbovlaste)
 source "$DIR/doDownload.sh"
 
 # Filter the list:
 #  - Keep one word per entry, filter out anything else (HTML stuff)
 #    - Example of a line in the HTML source: -&nbsp;<a href="abvele">abvele</a><br />
-#  - Prepend a dot '.' before words begining with a vowel
-#  - Fix 'y', which is written ".y." in the ref docs.
-#  - Filter out ultra-long words (are these spam?).
-#    - TODO: make the length a variable instead of a hardcoded value
-sed -En 's/^\-&nbsp;.*<a href="[^"]*">(.*)<\/a>.*$/\1/p' "$w2" | sed -E 's/^([aeiouy].*)$/.\1/' | sed -E 's/^.y$/.y./' | sed -En '/^.{22,}$/!p' > "$w3"
+sed -En 's/^\-&nbsp;.*<a href="[^"]*">(.*)<\/a>.*$/\1/p' "$w2" > "$w3"
+
+if (( verbose >= 1 )); then
+	lWeb="$(wc -l < $w3)"
+	lLocal="$(wc -l < $w1)"
+	echo "Lines from web list : $lWeb"
+	echo "Lines in local list : $lLocal"
+fi
 
 # Append local wordlist
 if [ -f "$w1" ]; then
 	cat "$w1" >> "$w3"
 fi
 
-# Split entries (with/without) spaces
-sed -En '/^.* .*$/p'  "$w3" > s1
-sed -En '/^.* .*$/!p' "$w3" > s0
+sed -Enf 'wordlist/clean.sed' "$w3" > "$w4"
+if (( verbose >= 1 )); then
+        wcTotal="$(wc -l < $w4)"
+        echo "Words (once cleaned): $wcTotal"
+fi
 
-# From entries with spaces, generate split words and merged words
-sed -E 's/ //g'   s1 > s1m
-sed -E 's/ /\n/g' s1 > s1s
+sed -Enf 'wordlist/clean_lojban.sed' "$w4" > "$w3"
 
-# Merge all
-cat s0   > "$w3"
-cat s1m >> "$w3"
-cat s1s >> "$w3"
-rm s0 s1 s1m s1s
+if (( verbose >= 1 )); then
+	wcClean="$(wc -l < $w3)"
+	echo "Illegal / filtered  : $(( wcTotal - wcClean ))"
+fi
 
-# Sort and remove duplicates and remove empty lines
-sort "$w3" | uniq | sed -En '/^ *$/!p' > "$w4"
-rm "$w3"
+#cp "$w4" 'wordlist/raw1' # DEBUG
+#cp "$w3" 'wordlist/raw2' # DEBUG
 
+# Sort and remove duplicates
+sort "$w3" | uniq > "$w4"
+
+if (( verbose >= 1 )); then
+	wcFinal="$(wc -l < $w4)"
+	echo "Duplicates          : $(( wcClean - wcFinal ))"
+fi
+
+# Cleanup & put the full list at its final place
+rm "$w3" && mv "$w4" "wordlist/full"
+#rm "$w4" && mv "$w3" "wordlist/full"
+
+# Split
+cd wordlist
+sed -Enf "split.sed" < full
+cd - > /dev/null

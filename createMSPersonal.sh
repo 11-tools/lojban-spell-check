@@ -10,4 +10,4 @@ source "$DIR/config.sh" || exit 4
 # Retreive the Lojban words list
 source "$DIR/doWordList.sh"
 
-mv "$w4" "ms.dic"
+cp "wordlist/full" "ms.dic"

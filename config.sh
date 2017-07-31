@@ -11,11 +11,9 @@ oxtFilePrefix="libreoffice-openoffice-lojban-dictionary-$curLang-v"     # Prefix
 oxtFileName="$oxtFilePrefix$version.oxt"                                # OXT file name
 xpiFilePrefix="firefox-thunderbird-lojban-dictionary-$curLang-v"        # Ditto, for Firefox
 xpiFileName="$xpiFilePrefix$version.xpi"                                # ...
+verbose=1                       # Verbosity level (0..2)
 
 # Internals
-w3="wordlist_tmp1"
-w4="wordlist_tmp2"
-
 is64="$(uname -m)"
 if [ "$is64" = "x86_64" ]; then
 	binSuffix="-x64"

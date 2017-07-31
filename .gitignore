@@ -9,6 +9,9 @@ opera/README*
 firefox/dictionaries/
 firefox/license.txt
 wordlist_cache.html
+wordlist/**
+!wordlist/test*
+!wordlist/headall
+!wordlist/*.sed
 /*.dic
 /*.oxt
-

@@ -1,0 +1,3 @@
+#!/bin/bash
+sed -Enf "clean.sed" < test_list | sed -Enf "clean_lojban.sed" | sort | uniq | sed -Enf "split.sed"
+./headall

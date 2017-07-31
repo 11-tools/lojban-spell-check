@@ -1,0 +1,45 @@
+# clean.sed will ignore comment lines
+
+# cmavo
+.a
+.i
+.y.
+ki'e
+lo
+ca
+nu
+
+# Vowel
+abu
+.abu
+.abu.
+ybu
+.ybu
+.ybu.
+
+# Consonant
+by
+by.
+
+# compound cmavo, with or without spaces
+lo nu
+ca lo nu
+lonu
+calonu
+
+# brivla
+valsi
+klama
+
+# lujvo
+noltrube'a
+
+# With spaces to trim
+	untrimmedLineA  
+  untrimmedLineB
+untrimmedLineC     
+
+# Invalid entries
+tooLongWordEizoapruazpeioruapzoeirupzaeiourpoezruapzzeloiearuazoiuyreoazeiuyroiazeuyrazioeuyroa
+ïnvàlîdLôjbânÄlphâbèt
+invalid-other-signs

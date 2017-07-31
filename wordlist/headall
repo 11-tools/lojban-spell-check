@@ -1,0 +1,17 @@
+#!/bin/bash
+function p {
+	echo "--- $1 ---"
+	if [ -n "$2" ];  then
+		head -n "$2" "$1"
+	else
+		head -n 7 "$1"
+	fi
+}
+
+p cmavo
+p cmavo_compound
+p brivla
+p vowel 3
+p consonant 3
+p cmevla
+p other
