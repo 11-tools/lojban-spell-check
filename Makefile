@@ -7,7 +7,7 @@ SHELL:=/bin/bash
 .PHONY: hunspell aspell base clean install oxt libreoffice openoffice opera firefox ms all stage
 
 wordlist_cache.html:
-	./doDownload
+	./doDownload.sh
 
 wordlist/full: wordlist_cache.html
 	./doWordList.sh
@@ -46,3 +46,7 @@ all: hunspell/jbo.dic oxt opera firefox ms
 
 stage: all
 	./doStage.sh
+
+test: #install
+	echo "i" | hunspell -d jbo
+	echo "poe" | hunspell -d jbo
