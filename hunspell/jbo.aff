@@ -5,7 +5,7 @@ LANG jbo
 #FLAG ASCII
 
 # DUMMY VALUE! To be updated
-TRY aeiouy'bcdfgjklmnpstvxz.,
+TRY .,'aeiouybcdfgjklmnpstvxz
 
 IGNORE ()[];:!?
 
