@@ -1,5 +1,5 @@
 # Dictionaries for Lojban spell checking
-These are Lojban spell-checkers for various software. they combine [jvoblaste](http://jbovlaste.lojban.org) with ultra-basic spell check rules. The result is clearly simplistic, but still better than nothing!
+These are Lojban spell-checkers for various software. They combine [jvoblaste](http://jbovlaste.lojban.org) with ultra-basic spell check rules. The result is clearly simplistic, but still better than nothing!
 
 Feel free to participate by commenting, or emailing me: sukender at free dot fr. Please visit [the tools repository](https://github.com/Sukender/lojban-spell-check) for pull requests and technical stuff.
 
