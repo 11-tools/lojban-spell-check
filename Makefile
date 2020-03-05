@@ -4,7 +4,7 @@
 
 SHELL:=/bin/bash
 
-.PHONY: hunspell aspell base clean install oxt libreoffice openoffice opera firefox ms all stage
+.PHONY: hunspell aspell base clean install oxt libreoffice openoffice opera firefox-legacy firefox43 ms all stage
 
 wordlist_cache.html:
 	./doDownload.sh
@@ -36,13 +36,16 @@ openoffice:  oxt    # Alias
 opera: hunspell/jbo.dic
 	./createOpera.sh
 
-firefox: hunspell/jbo.dic
-	./createFirefox.sh
+firefox-legacy: hunspell/jbo.dic
+	./createFirefoxLegacy.sh
+
+firefox43: hunspell/jbo.dic
+	./createFirefox43.sh
 
 ms: wordlist/full
 	./createMSPersonal.sh
 
-all: hunspell/jbo.dic oxt opera firefox ms
+all: hunspell/jbo.dic oxt opera firefox-legacy firefox43 ms
 
 stage: all
 	./doStage.sh
