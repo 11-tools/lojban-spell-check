@@ -1,0 +1,17 @@
+{
+	"manifest_version": 2,
+	"short_name": "lojban",
+	"name": "la .lojban. vlalerpoi",
+	"description": "Lojban spell check dictionary. | la .lojban. vlalerpoi",
+	"homepage_url": "https://github.com/Sukender/lojban-spell-check-dist",
+	"version": "2020.3.5",
+	"dictionaries": {
+		"jbo": "dictionaries/jbo.dic"
+	},
+	"applications": {
+		"gecko": {
+			"id": "jbo@dictionaries.addons.mozilla.org",
+			"strict_min_version": "68.0"
+		}
+	}
+}

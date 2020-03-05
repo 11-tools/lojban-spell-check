@@ -16,12 +16,12 @@ cp "hunspell/$curLang.dic" "$dir/dictionaries/"
 cp "hunspell/$curLang.aff" "$dir/dictionaries/"
 
 # Update version number
-sed -i -E "s/(\"version\": *\").*(\",)/\1$version\2/" "$dir/manifest.json"
+sed -i -E "s/(\"version\": *\").*(\",)/\1$versionNoZeroes\2/" "$dir/manifest.json"
 
 # Update/copy license
 cp "LICENSE" "$dir/license.txt"
 
 # Zip into an .xpi file
-cd "$dir"
+cd "$dir" > /dev/null
 zip -rq9 "../$xpi43FileName" *
-cd -
+cd - > /dev/null

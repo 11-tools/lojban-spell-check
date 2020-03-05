@@ -30,18 +30,26 @@ mkdir -p "$cur"
 mv "$curLang.zip" "$cur"
 #ln -s ...
 
-# 4. Firefox
+# 4. Mozilla-related
+# 4.1 Firefox <43 and Thunderbird <68
 cur="$dir/firefox-legacy"
 rm -r "$cur" 2> /dev/null
 mkdir -p "$cur"
 mv "$xpiFileName" "$cur"
 #ln -s "$cur/$xpiFileName" "$dir/Lojban Firefox dictionary.xpi"
 
+# 4.2 Firefox >=43
 cur="$dir/firefox43"
 rm -r "$cur" 2> /dev/null
 mkdir -p "$cur"
 mv "$xpi43FileName" "$cur"
 #ln -s "$cur/$xpi43FileName" "$dir/Lojban Firefox dictionary.xpi"
+
+# 4.3 Thunderbird >=68
+cur="$dir/thunderbird68"
+rm -r "$cur" 2> /dev/null
+mkdir -p "$cur"
+mv "$xpiThunderbird68FileName" "$cur"
 
 # 5. MS
 cur="$dir/ms"

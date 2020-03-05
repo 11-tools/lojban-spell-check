@@ -1,0 +1,22 @@
+SET UTF-8
+
+LANG jbo
+
+#FLAG ASCII
+
+# DUMMY VALUE! To be updated
+TRY .,'aeiouybcdfgjklmnpstvxz
+
+IGNORE ()[];:!?
+
+WORDCHARS .,'
+SUGSWITHDOTS
+
+REP 1
+REP h '
+
+KEEPCASE X
+	
+COMPOUNDMIN 1
+COMPOUNDRULE 1
+COMPOUNDRULE CCC*

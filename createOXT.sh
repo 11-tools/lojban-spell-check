@@ -20,6 +20,6 @@ sed -i -E "s/(<version value=\")[^\"]*(\" \/>)/\1$version\2/" "$dir/description.
 cp "LICENSE" "$dir/license.txt"
 
 # Zip into an .oxt file
-cd "$dir"
+cd "$dir" > /dev/null
 zip -rq9 "../$oxtFileName" *
-cd -
+cd - > /dev/null

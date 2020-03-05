@@ -18,6 +18,6 @@ cp "LICENSE" "$dir/license.txt"
 cp "libreoffice-oxt/package-description.txt" "$dir/README_$curLang.txt"
 
 # Zip it
-cd "$dir"
+cd "$dir" > /dev/null
 zip -rq9 "../$curLang.zip" *
-cd -
+cd - > /dev/null
