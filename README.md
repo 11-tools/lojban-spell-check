@@ -16,7 +16,7 @@ These bash scripts run on GNU/Linux and Cygwin. OSX was not tested but it should
 ## Usage
 Read the source code!
 
-In a nutshell: `make all` will download dictionaries, and run everything to build final ouptuts.
+In a nutshell: `make all` or `make stage` will download dictionaries, and run everything to build final outputs.
 
 # To do
 - Add aspell
